@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teja Dapa | Personal Website</title>
+
+  <meta name="description" content="Personal website of Teja Dapa" />
+  <meta name="author" content="Teja Dapa" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      background-color: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 5rem 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      color: #93c5fd;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #111827;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #bfdbfe;
+    }
+
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #020617;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Teja Dapa</h1>
+    <p>
+      Welcome to my personal website. This space highlights who I am, what I do,
+      and the skills I’m building.
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Teja Dapa. I’m passionate about learning, building, and growing
+        through technology. This website is a simple place to share my journey
+        and work.
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills & Interests</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>
+            HTML, CSS, and building clean, responsive websites.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Programming</h3>
+          <p>
+            Learning problem solving and writing efficient code.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Continuous Learning</h3>
+          <p>
+            Exploring new technologies and improving every day.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:tejadapa@example.com">tejadapa@example.com</a>
+        <br /><br />
+        GitHub:
+        <a href="https://github.com/TejaDapa" target="_blank" rel="noopener">
+          github.com/TejaDapa
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Teja Dapa. All rights reserved.
+  </footer>
+</body>
+</html>
+
