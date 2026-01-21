@@ -18,8 +18,58 @@
       background: radial-gradient(circle at top, #1a1a1a, #000000);
       color: #e5e5e5;
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+    .navbar ul li a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .navbar ul li a:hover {
+    color: #38bdf8;
+  }
+
+  /* Hamburger button styling */
+  .hamburger {
+    display: none;            
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #d4af37;           
+    cursor: pointer;
+  }
+
+  /* Responsive Navbar for screens <= 768px */
+  @media (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;  
+      display: none;           
+      gap: 1.5rem;
+      background-color: #0b0b0b;
+      position: absolute;      
+      top: 100%;               
+      left: 0;
+      width: 100%;
+      padding: 1rem 0;
     }
 
+    .navbar ul.show {
+      display: flex;           
+    }
+
+    .hamburger {
+      display: block;          
+    }
+  }
+    
     a {
       color: #d4af37; /* gold */
       text-decoration: none;
@@ -216,6 +266,10 @@ body {
   <!-- <span class="badge">DATA ANALYST PORTFOLIO</span>
   <span class="name">Sai Teja Adapa</span> -->
   <nav class="navbar">
+    <button class="hamburger" aria-label="Toggle menu">
+    &#9776; <!-- hamburger icon -->
+    </button>
+
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -310,6 +364,7 @@ body {
 
 </body>
 </html>
+
 
 
 
