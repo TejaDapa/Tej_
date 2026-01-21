@@ -31,14 +31,24 @@
       align-items: flex-start;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: #60a5fa;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
     }
 
+    header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  background-color: #60a5fa; /* sky blue */
+  color: #0f172a;            /* dark text for contrast */
+
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;      /* pill shape */
+}
     header p {
       margin-top: 1rem;
       font-size: 1.2rem;
@@ -119,8 +129,11 @@ a:hover::after {
 
 <body>
   <header>
+  <div class="header-right">
+    <a href="#" class="home-btn">Home</a>
     <h1>Sai Teja Adapa</h1>
-  </header>
+  </div>
+</header>
   <section style="text-align:center; padding: 4rem 1rem;">
   <p style="font-size:1.2rem; max-width:650px; margin:auto;">
     Welcome to my personal website. This space highlights who I am, what I do,
@@ -183,6 +196,7 @@ a:hover::after {
   </footer>
 </body>
 </html>
+
 
 
 
