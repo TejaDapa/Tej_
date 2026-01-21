@@ -3,223 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sai Teja Adapa | Personal Website</title>
-
-  <meta name="description" content="Personal website of Sai Teja Adapa" />
-  <meta name="author" content="Sai Teja Adapa" />
+  <title>Sai Teja Adapa | Data Analyst Portfolio</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
-      background: linear-gradient(to bottom, #0f172a 0%, #111827 100%);
+        Roboto, Ubuntu, sans-serif;
+      background: radial-gradient(circle at top, #0b1a3a, #020617);
       color: #e5e7eb;
       line-height: 1.6;
     }
 
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
     header {
-      padding: 1.5rem 2rem;
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      padding: 3rem 2rem;
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-    }
-
-    .header-right {
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 1.2rem;
     }
 
-    header h1 {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+    .badge {
+      background: #1e3a8a;
+      color: #93c5fd;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
 
-  background-color: #60a5fa; /* sky blue */
-  color: #0f172a;            /* dark text for contrast */
-
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;      /* pill shape */
-}
-    header p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
+    .name {
+      background: #38bdf8;
+      color: #020617;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 3rem 1rem;
+      padding: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      max-width: 500px;
+      margin-bottom: 1.5rem;
+      color: #cbd5f5;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin-right: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+    }
+
+    .buttons a.primary {
+      background: #38bdf8;
+      color: #020617;
+      font-weight: 600;
     }
 
     section {
-      margin-bottom: 4rem;
+      margin-top: 5rem;
     }
 
     h2 {
-      color: #3b82f6;
-      margin-bottom: 1rem;
       font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #93c5fd;
     }
 
-    .cards {
+    .skills {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
     }
 
     .card {
-      background-color: #1f2937;
+      background: #020617;
+      border: 1px solid #1e293b;
       padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 14px;
     }
 
-    .card:hover {
-      transform: translate(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    }
     .card h3 {
-      margin-top: 0;
-      color: #bfdbfe;
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
     }
 
-    a {
-  color: #3b82f6;
-  text-decoration: none;
-  position: relative;
-}
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -2px;
-  background-color: #3b82f6;
-  transition: width 0.3s ease;
-}
+    .project {
+      background: #020617;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #1e293b;
+    }
 
-a:hover::after {
-  width: 100%;
-}
+    .project img {
+      width: 100%;
+      display: block;
+    }
+
+    .project-content {
+      padding: 1.2rem;
+    }
 
     footer {
+      margin-top: 6rem;
+      padding: 2rem;
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: #020617;
       color: #9ca3af;
       font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-  <div class="header-right">
-    <a href="#" class="home-btn">Home</a>
-    <h1>Sai Teja Adapa</h1>
-  </div>
-</header>
-  <section class="hero">
+
+<header>
   <span class="badge">DATA ANALYST PORTFOLIO</span>
+  <span class="name">Sai Teja Adapa</span>
+</header>
 
-  <h2>
-    Hello, I’m <span class="highlight">Sai Teja</span>
-  </h2>
+<main>
 
-  <p>
-    I analyze data to uncover insights, solve business problems,
-    and support data-driven decision making.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#projects" class="btn primary">Projects</a>
-    <a href="#" class="btn secondary">Download CV</a>
-  </div>
-</section>
-
-  <main>
-    <section>
-      <h2>About Me</h2>
+  <section class="hero">
+    <div>
+      <h1>Hello, I’m <span>Sai Teja</span></h1>
       <p>
-        Hi, I’m Sai Teja Adapa. I’m passionate about learning, building, and growing
-        through technology. This website is a simple place to share my journey
-        and work.
+        I analyze data to uncover insights, solve business problems,
+        and support data-driven decision making.
       </p>
-    </section>
+      <div class="buttons">
+        <a href="#projects" class="primary">Projects</a>
+        <a href="#">Download CV</a>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Skills & Interests</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>
-            HTML, CSS, and building clean, responsive websites.
-          </p>
-        </div>
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Sai Teja Adapa. I’m passionate about learning, building,
+      and growing through technology. This website is a simple place
+      to share my journey and work.
+    </p>
+  </section>
 
-        <div class="card">
-          <h3>Programming</h3>
-          <p>
-            Learning problem solving and writing efficient code.
-          </p>
-        </div>
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Programming</h3>
+        <p>Python, SQL</p>
+      </div>
+      <div class="card">
+        <h3>Data Analytics Tools</h3>
+        <p>Excel, Google Sheets, BigQuery</p>
+      </div>
+      <div class="card">
+        <h3>Visualization</h3>
+        <p>Tableau, Looker Studio</p>
+      </div>
+      <div class="card">
+        <h3>Methods</h3>
+        <p>EDA, Regression, A/B Testing</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="card">
-          <h3>Continuous Learning</h3>
-          <p>
-            Exploring new technologies and improving every day.
-          </p>
+  <section id="projects">
+    <h2>Notable Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <div class="project-content">
+          <h3>Uber Pricing Optimization</h3>
+          <p>Linear Regression, NYC Dataset</p>
         </div>
       </div>
-    </section>
+      <div class="project">
+        <div class="project-content">
+          <h3>IBM Employee Attrition</h3>
+          <p>Logistic Regression, Strategy</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-content">
+          <h3>Fast Food A/B Testing</h3>
+          <p>Statistical Testing & Analysis</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:tejadapa2309@gmail.com">tejadapa2309@gmail.com</a>
-        <br /><br />
-        GitHub:
-        <a href="https://github.com/TejaAdapa" target="_blank" rel="noopener">
-          
-        </a>
-      </p>
-    </section>
-  </main>
+</main>
 
-  <footer>
-    © 2026 Sai Teja Adapa. All rights reserved.
-  </footer>
+<footer>
+  © 2026 Sai Teja Adapa · Designed & built by me
+</footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
