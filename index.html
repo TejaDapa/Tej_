@@ -283,7 +283,7 @@ body {
 
 <main>
 
-  <section class="hero">
+  <section  id="home" class="hero">
     <div>
       <h1>Hello, I’m <span>Sai Teja</span></h1>
       <p>
@@ -301,7 +301,7 @@ body {
   </div>
   </section>
 
-  <section>
+  <section  id="about">
     <h2>About Me</h2>
     <p>
       Hi, I’m Sai Teja Adapa. I’m passionate about learning, building,
@@ -310,7 +310,7 @@ body {
     </p>
   </section>
 
-  <section>
+  <section  id="skills">
     <h2>Technical Skills</h2>
     <div class="skills">
       <div class="card">
@@ -332,7 +332,7 @@ body {
     </div>
   </section>
 
-  <section id="projects">
+  <section  id="projects">
     <h2>Notable Projects</h2>
     <div class="projects">
       <div class="project">
@@ -362,8 +362,19 @@ body {
   © 2026 Sai Teja Adapa · Designed & built by me
 </footer>
 
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.navbar ul');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+  
 </body>
 </html>
+
 
 
 
