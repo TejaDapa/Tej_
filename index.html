@@ -169,6 +169,43 @@
   border: 4px solid #d4af37;
   box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
 }
+
+/* Navbar styling */
+.navbar {
+  position: fixed;           /* keeps navbar at the top */
+  top: 0;                    /* stick to top */
+  left: 0;
+  width: 100%;               /* full width */
+  background-color: #0b0b0b; /* dark background matching your theme */
+  padding: 1rem 2rem;        /* spacing inside navbar */
+  z-index: 1000;             /* ensures navbar stays on top of content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* subtle shadow */
+}
+
+.navbar ul {
+  list-style: none;          /* remove bullets */
+  display: flex;             /* horizontal layout */
+  justify-content: center;   /* center the links */
+  gap: 2rem;                 /* spacing between links */
+}
+
+.navbar ul li a {
+  color: #d4af37;            /* gold links */
+  text-decoration: none;     /* no underline */
+  font-weight: 600;          /* bold text */
+  transition: color 0.3s;    /* smooth color change on hover */
+}
+
+.navbar ul li a:hover {
+  color: #38bdf8;            /* hover color (blue) */
+}
+
+/* Ensure content below navbar isn’t hidden */
+body {
+  scroll-behavior: smooth;   /* smooth scrolling when clicking links */
+  padding-top: 70px;         /* space for navbar height */
+}
+
     
   </style>
 </head>
@@ -178,6 +215,16 @@
 <header>
   <!-- <span class="badge">DATA ANALYST PORTFOLIO</span>
   <span class="name">Sai Teja Adapa</span> -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
 </header>
 
 <main>
@@ -263,6 +310,7 @@
 
 </body>
 </html>
+
 
 
 
