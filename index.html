@@ -109,8 +109,9 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 3rem;
       align-items: center;
-      margin-top: 3rem;
-    }
+     min-height: 100vh;   /* FULL SCREEN */
+    margin-top: 0;       /* REMOVE extra spacing */
+  }
 
     .hero h1 {
       font-size: 3rem;
@@ -256,6 +257,26 @@ body {
   padding-top: 70px;         /* space for navbar height */
 }
 
+    .hero-name {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-name span {
+  color: #d4af37;
+}
+    
+    .hero-badge {
+  display: inline-block;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
     
   </style>
 </head>
@@ -285,7 +306,10 @@ body {
 
   <section  id="home" class="hero">
     <div>
-      <h1>Hello, I’m <span>Sai Teja</span></h1>
+      <div class="hero-badge">DATA ANALYST PORTFOLIO</div>
+      <h1 class="hero-name">
+        Sai <span>Teja</span>
+      </h1
       <p>
         I analyze data to uncover insights, solve business problems,
         and support data-driven decision making.
@@ -374,6 +398,7 @@ body {
   
 </body>
 </html>
+
 
 
 
