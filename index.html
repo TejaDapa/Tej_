@@ -4,427 +4,844 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sai Teja Adapa | Data Analyst Portfolio</title>
+  <meta name="description" content="Sai Teja Adapa - Data Analyst Portfolio" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg0:#050814;
+      --bg1:#070c1f;
+      --panel:#0a0f2a;
+      --panel2:#070b1b;
+      --line:rgba(255,255,255,.12);
+      --text:#e8ecff;
+      --muted:#aab2da;
+      --gold:#d4af37;
+      --cyan:#38bdf8;
+      --shadow: 0 18px 40px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:999px;
+      --max:1100px;
     }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Ubuntu, sans-serif;
-      background: radial-gradient(circle at top, #0b1d3a, #020b18);
-      color: #e5e5e5;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      padding-top: 60px;
-    }
-    .navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-    .navbar ul li a {
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .navbar ul li a:hover {
-    color: #38bdf8;
-  }
-
-  /* Hamburger button styling */
-  .hamburger {
-    display: none;            
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #d4af37;           
-    cursor: pointer;
-  }
-
-  /* Responsive Navbar for screens <= 768px */
-  @media (max-width: 768px) {
-    .navbar ul {
-      flex-direction: column;  
-      display: none;           
-      gap: 1.5rem;
-      background-color: #0b0b0b;
-      position: absolute;      
-      top: 100%;               
-      left: 0;
-      width: 100%;
-      padding: 1rem 0;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% 0%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(900px 550px at 85% 15%, rgba(212,175,55,.14), transparent 55%),
+        radial-gradient(800px 520px at 50% 110%, rgba(56,189,248,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
 
-    .navbar ul.show {
-      display: flex;           
+    /* ===== Sticky Nav ===== */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:999;
+      background:rgba(5,8,20,.78);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.3px;
+    }
+    .brand-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(212,175,55,.35);
+      color:var(--gold);
+      font-size:.78rem;
+      font-weight:800;
+      text-transform:uppercase;
     }
 
-    .hamburger {
-      display: block;          
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--gold);
+      font-size:28px;
+      cursor:pointer;
+      padding:8px 10px;
+      border-radius:12px;
     }
-  }
-    
-    a {
-      color: #d4af37; /* gold */
-      text-decoration: none;
+    .hamburger:hover{ background:rgba(255,255,255,.06); }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:22px;
+      margin:0; padding:0;
+      align-items:center;
+    }
+    .nav-links a{
+      color:rgba(232,236,255,.9);
+      text-decoration:none;
+      font-weight:650;
+      font-size:.95rem;
+      padding:10px 10px;
+      border-radius:12px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover{ color:var(--cyan); background:rgba(255,255,255,.06); }
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
-    header {
-      padding: 0;
+    /* ===== Layout ===== */
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
     }
 
-    .badge {
-      background: #1e3a8a;
-      color: #93c5fd;
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
+    .spacer{ height:76px; } /* space under fixed nav */
+
+    /* ===== Pills / Buttons ===== */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(212,175,55,.45);
+      color:var(--gold);
+      text-decoration:none;
+      font-weight:750;
+      font-size:.92rem;
+      background:rgba(212,175,55,.06);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{ transform:translateY(-1px); background:rgba(56,189,248,.08); border-color:rgba(56,189,248,.45); color:var(--cyan); }
+    .pill.primary{
+      background:var(--gold);
+      color:#090b12;
+      border-color:transparent;
+    }
+    .pill.primary:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+
+    /* ===== Hero ===== */
+    .hero{
+      padding:34px 0 10px;
+      min-height: calc(100vh - 76px);
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-left{ display:flex; flex-direction:column; gap:14px; }
+    .hero-title{
+      margin:0;
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      line-height:1.05;
+      letter-spacing:.4px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .hero-title .gold{ color:var(--gold); }
+    .hero-sub{
+      margin:0;
+      max-width:52ch;
+      color:var(--muted);
+      font-size:1.03rem;
+    }
+    .hero-mini{
+      display:inline-flex;
+      width:fit-content;
+      padding:6px 12px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(212,175,55,.38);
+      color:var(--gold);
+      font-weight:850;
+      font-size:.82rem;
+      letter-spacing:.9px;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.03);
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:6px;
     }
 
-    .name {
-      background: #d4af37;
-      color: #000;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      font-weight: 600;
+    .hero-right{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar{
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid rgba(212,175,55,.9);
+      box-shadow: 0 0 0 10px rgba(212,175,55,.08), 0 25px 60px rgba(0,0,0,.55);
+      background:#0b0b0b;
     }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
+    /* ===== Section Headers ===== */
+    section{ padding:34px 0; }
+    .section-pill{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 12px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(212,175,55,.42);
+      color:var(--gold);
+      font-weight:850;
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      background:rgba(255,255,255,.03);
+      margin-bottom:14px;
+    }
+    h2{
+      margin:8px 0 18px;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      letter-spacing:.4px;
+      color:var(--text);
+    }
+    .subtext{ color:var(--muted); margin:0; max-width:75ch; }
+
+    /* ===== Skills (4 columns like screenshot) ===== */
+    .skills-grid{
+      margin-top:18px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow: var(--shadow);
+    }
+    .skills-cols{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .skill-col{
+      padding:18px 18px 10px;
+      border-right:1px solid rgba(255,255,255,.10);
+      min-height:220px;
+    }
+    .skill-col:last-child{ border-right:0; }
+    .skill-head{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:12px;
+    }
+    .icon{
+      width:34px; height:34px;
+      border-radius:12px;
+      display:grid; place-items:center;
+      background:rgba(212,175,55,.10);
+      border:1px solid rgba(212,175,55,.28);
+      color:var(--gold);
+      font-weight:900;
+    }
+    .skill-title{
+      font-weight:900;
+      color:var(--gold);
+      letter-spacing:.3px;
+    }
+    .skill-list{
+      margin:0; padding:0 0 10px 0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      color:rgba(232,236,255,.92);
+      font-weight:650;
+    }
+    .skill-list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .dot{
+      width:8px; height:8px;
+      border-radius:50%;
+      background:rgba(56,189,248,.9);
+      margin-top:7px;
+      flex:0 0 auto;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-      align-items: center;
-     min-height: calc(100vh - 60px);   /* FULL SCREEN */
-    margin-top: 0;       /* REMOVE extra spacing */
-    padding-top: 0;
+    /* ===== Education & Experience ===== */
+    .two-cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+    .box{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      padding:18px;
+      background:rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .box h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      font-size:1.05rem;
+    }
+    .item{
+      padding:12px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .item:first-of-type{ border-top:0; padding-top:0; }
+    .item-title{
+      margin:0;
+      font-weight:900;
+      color:rgba(232,236,255,.95);
+    }
+    .item-meta{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
-.hero > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-    
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    /* ===== Projects blocks (01,02,03 style) ===== */
+    .project-block{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding:28px 0;
+    }
+    .project-head{
+      display:flex;
+      align-items:flex-end;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .num{
+      font-size:3.1rem;
+      font-weight:950;
+      color:rgba(232,236,255,.92);
+      line-height:1;
+    }
+    .proj-title{
+      margin:0;
+      font-size:1.35rem;
+      font-weight:950;
+      color:var(--gold);
+      letter-spacing:.4px;
+      text-transform:uppercase;
+    }
+    .proj-sub{
+      width:100%;
+      margin:0;
+      color:rgba(232,236,255,.78);
+      font-weight:750;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+      font-size:.92rem;
     }
 
-    .hero h1 span {
-      color: #38bdf8;
+    .project-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:start;
+    }
+    .project-media{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      min-height:210px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .project-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .project-body{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      padding:16px;
+      background:rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .project-body p{ margin:0 0 12px; color:var(--muted); }
+    .meta-line{
+      margin:10px 0 0;
+      color:rgba(232,236,255,.86);
+      font-weight:750;
+      font-size:.93rem;
+    }
+    .meta-line b{ color:var(--gold); }
+    .proj-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
     }
 
-    .hero p {
-      max-width: 500px;
-      margin-bottom: 1.5rem;
-      color: #cbd5f5;
+    /* ===== Contact strip like screenshot ===== */
+    .contact-cta{
+      margin-top:18px;
+      padding:26px 18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+      text-align:center;
     }
-
-    .buttons a {
-      display: inline-block;
-      margin-right: 1rem;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid #d4af37;
+    .contact-cta h3{
+      margin:0;
+      font-size:2.0rem;
+      font-weight:950;
+      letter-spacing:.2px;
     }
-
-    .buttons a.primary {
-      background: #d4af37;
-      color: #020617;
-      font-weight: 600;
+    .contact-cta h3 .gold{ color:var(--gold); }
+    .contact-row{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+      color:rgba(232,236,255,.92);
+      font-weight:700;
     }
-
-    section {
-      margin-top: 5rem;
+    .contact-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.18);
+      text-decoration:none;
+      color:rgba(232,236,255,.92);
+      transition:.2s ease;
     }
+    .contact-chip:hover{ border-color:rgba(56,189,248,.45); color:var(--cyan); transform:translateY(-1px); }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #d4af37;
+    /* ===== Footer ===== */
+    footer{
+      margin-top:46px;
+      padding:18px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:rgba(232,236,255,.65);
     }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+    .foot{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:0 18px;
     }
+    .foot a{ color:rgba(232,236,255,.70); text-decoration:none; }
+    .foot a:hover{ color:var(--cyan); }
 
-    .card {
-      background: #0b0b0b;
-      border: 1px solid #2a2a2a;
-      padding: 1.5rem;
-      border-radius: 14px;
+    /* ===== Mobile ===== */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns: 1fr; padding-top:20px; }
+      .hero-right{ order:-1; justify-content:flex-start; }
+      .avatar{ width:220px; height:220px; }
+      .project-grid{ grid-template-columns:1fr; }
+      .project-media{ grid-template-columns:1fr 1fr; }
+      .two-cols{ grid-template-columns:1fr; }
+      .skills-cols{ grid-template-columns:1fr 1fr; }
+      .skill-col:nth-child(2){ border-right:0; }
+      .skill-col:nth-child(3){ border-right:1px solid rgba(255,255,255,.10); border-top:1px solid rgba(255,255,255,.10); }
+      .skill-col:nth-child(4){ border-right:0; border-top:1px solid rgba(255,255,255,.10); }
     }
-
-    .card h3 {
-      color: #38bdf8;
-      margin-bottom: 0.5rem;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .project {
-      background: #020617;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #1e293b;
-    }
-
-    .project img {
-      width: 100%;
-      display: block;
-    }
-
-    .project-content {
-      padding: 1.2rem;
-    }
-
-    footer {
-      margin-top: 6rem;
-      padding: 2rem;
-      text-align: center;
-      color: #9ca3af;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
+    @media (max-width: 760px){
+      .hamburger{ display:block; }
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0; right:0;
+        background:rgba(5,8,20,.92);
+        border-bottom:1px solid rgba(255,255,255,.08);
+        padding:10px 10px 14px;
+        flex-direction:column;
+        gap:6px;
       }
+      .nav-links.show{ display:flex; }
+      .nav-links a{ width:100%; }
+      .skills-cols{ grid-template-columns:1fr; }
+      .skill-col{ border-right:0; border-top:1px solid rgba(255,255,255,.10); }
+      .skill-col:first-child{ border-top:0; }
+      .project-media{ grid-template-columns:1fr; }
     }
 
-.hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image img {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #d4af37;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
-}
-
-/* Navbar styling */
-.navbar {
-  position: fixed;           /* keeps navbar at the top */
-  top: 0;                    /* stick to top */
-  left: 0;
-  width: 100%;               /* full width */
-  background-color: #0b0b0b; /* dark background matching your theme */
-  padding: 1rem 2rem;        /* spacing inside navbar */
-  z-index: 1000;             /* ensures navbar stays on top of content */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* subtle shadow */
-}
-
-.navbar ul {
-  list-style: none;          /* remove bullets */
-  display: flex;             /* horizontal layout */
-  justify-content: center;   /* center the links */
-  gap: 2rem;                 /* spacing between links */
-}
-
-.navbar ul li a {
-  color: #d4af37;            /* gold links */
-  text-decoration: none;     /* no underline */
-  font-weight: 600;          /* bold text */
-  transition: color 0.3s;    /* smooth color change on hover */
-}
-
-.navbar ul li a:hover {
-  color: #38bdf8;            /* hover color (blue) */
-}
-
-/* Ensure content below navbar isn’t hidden */
-body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000000);
-  color: #e5e5e5;
-  line-height: 1.6;  
-  scroll-behavior: smooth;   /* smooth scrolling when clicking links */
-  padding-top: 60px;         /* space for navbar height */
-}
-
-    .hero-name {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.hero-name span {
-  color: #d4af37;
-}
-    
-    .hero-badge {
-  display: inline-block;
-  border: 2px solid #d4af37;
-  color: #d4af37;
-  padding: 0.3rem 1rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-    
+    /* Ensure anchors don't hide behind fixed nav */
+    section{ scroll-margin-top: 92px; }
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-badge">Data Analyst Portfolio</span>
+      </a>
 
-<header>
-  <!-- <span class="badge">DATA ANALYST PORTFOLIO</span>
-  <span class="name">Sai Teja Adapa</span> -->
-  <nav class="navbar">
-    <button class="hamburger" aria-label="Toggle menu">
-    &#9776; <!-- hamburger icon -->
-    </button>
+      <button class="hamburger" aria-label="Toggle menu" id="hamburger">&#9776;</button>
 
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Technical Skills</a></li>
+        <li><a href="#background">Education & Experience</a></li>
+        <li><a href="#projects">Notable Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-</header>
-
-<main>
-
-  <section  id="home" class="hero">
-    <div>
-      <div class="hero-badge">DATA ANALYST PORTFOLIO</div>
-      <h1 class="hero-name">
-        Sai <span>Teja</span>
-      </h1
-      <p>
-        I analyze data to uncover insights, solve business problems,
-        and support data-driven decision making.
-      </p>
-      <div class="buttons">
-        <a href="#projects" class="primary">Projects</a>
-        <a href="#">Download CV</a>
+      <div class="nav-cta">
+        <a class="pill primary" href="#projects">Projects</a>
       </div>
     </div>
-
-    <div class="hero-image">
-    <img src="Profile.jpg" alt="Sai Teja Adapa">
   </div>
-  </section>
-  <section  id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m Sai Teja Adapa. I’m passionate about learning, building,
-      and growing through technology. This website is a simple place
-      to share my journey and work.
-    </p>
-  </section>
 
-  <section  id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills">
-      <div class="card">
-        <h3>Programming</h3>
-        <p>Python, SQL</p>
+  <div class="spacer"></div>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <div class="hero-mini">DATA ANALYST PORTFOLIO</div>
+
+        <h1 class="hero-title">
+          SAI TEJA <span class="gold">ADAPA</span>
+        </h1>
+
+        <p class="hero-sub">
+          I analyze data to uncover insights, solve business problems, and support data-driven decision making.
+        </p>
+
+        <div class="hero-actions">
+          <a class="pill primary" href="#projects">Projects</a>
+          <!-- Put your resume file in repo and change href to it -->
+          <a class="pill" href="SaiTejaAdapa_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="pill" href="https://www.linkedin.com/in/saitejaadapa" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="mailto:tejadapa2309@gmail.com">Email</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Data Analytics Tools</h3>
-        <p>Excel, Google Sheets, BigQuery</p>
+
+      <div class="hero-right">
+        <!-- Put your photo in repo as Profile.jpg (or change filename) -->
+        <img class="avatar" src="Profile.jpg" alt="Sai Teja Adapa" />
       </div>
-      <div class="card">
-        <h3>Visualization</h3>
-        <p>Tableau, Looker Studio</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-pill">About Me</div>
+      <h2>Hello, I’m <span style="color:var(--gold);">Sai Teja</span></h2>
+      <p class="subtext">
+        I’m a Data Analyst passionate about turning raw data into meaningful insights.
+        I work with SQL, Python, spreadsheets, and BI tools to analyze trends, build dashboards,
+        and communicate clear recommendations for business decisions.
+      </p>
+    </section>
+
+    <!-- SKILLS (4 columns like screenshots) -->
+    <section id="skills">
+      <div class="section-pill">Technical Skills</div>
+      <h2>Tools I Use</h2>
+
+      <div class="skills-grid">
+        <div class="skills-cols">
+          <div class="skill-col">
+            <div class="skill-head">
+              <div class="icon">⌘</div>
+              <div class="skill-title">Programming Languages</div>
+            </div>
+            <ul class="skill-list">
+              <li><span class="dot"></span> SQL</li>
+              <li><span class="dot"></span> Python</li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <div class="skill-head">
+              <div class="icon">▦</div>
+              <div class="skill-title">Data Analytic Tools</div>
+            </div>
+            <ul class="skill-list">
+              <li><span class="dot"></span> Microsoft Excel</li>
+              <li><span class="dot"></span> Google Sheets</li>
+              <li><span class="dot"></span> BigQuery</li>
+              <li><span class="dot"></span> VS Code</li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <div class="skill-head">
+              <div class="icon">◔</div>
+              <div class="skill-title">Data Visualization Tools</div>
+            </div>
+            <ul class="skill-list">
+              <li><span class="dot"></span> Tableau</li>
+              <li><span class="dot"></span> Looker Studio</li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <div class="skill-head">
+              <div class="icon">∑</div>
+              <div class="skill-title">Data Analytic Methods</div>
+            </div>
+            <ul class="skill-list">
+              <li><span class="dot"></span> EDA</li>
+              <li><span class="dot"></span> Regression</li>
+              <li><span class="dot"></span> A/B Testing</li>
+              <li><span class="dot"></span> ANOVA (Post-hoc T-Test)</li>
+              <li><span class="dot"></span> Cohort / Segmentation</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>Methods</h3>
-        <p>EDA, Regression, A/B Testing</p>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE -->
+    <section id="background">
+      <div class="section-pill">Education & Experience Background</div>
+      <h2>Background</h2>
+
+      <div class="two-cols">
+        <div class="box">
+          <h3>Education</h3>
+
+          <div class="item">
+            <p class="item-title">Add your degree / course here</p>
+            <p class="item-meta">University / Platform · Year</p>
+          </div>
+
+          <div class="item">
+            <p class="item-title">Certifications (Optional)</p>
+            <p class="item-meta">Google Data Analytics / IBM / etc</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Experience</h3>
+
+          <div class="item">
+            <p class="item-title">Data Analyst (Add company)</p>
+            <p class="item-meta">Role details (1–2 lines) · Year</p>
+          </div>
+
+          <div class="item">
+            <p class="item-title">Projects / Internship (Optional)</p>
+            <p class="item-meta">Short impact statement · Year</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (01/02/03/04 blocks like screenshots) -->
+    <section id="projects">
+      <div class="section-pill">Notable Projects</div>
+      <h2>Selected Work</h2>
+
+      <!-- Project 01 -->
+      <div class="project-block">
+        <div class="project-head">
+          <div class="num">01</div>
+          <div>
+            <p class="proj-title">UBER PRICING OPTIMIZATION</p>
+            <p class="proj-sub">IN NEW YORK CITY</p>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-media">
+            <!-- Put your images in repo and update names -->
+            <img src="projects/uber_1.jpg" alt="Uber project preview 1">
+            <img src="projects/uber_2.jpg" alt="Uber project preview 2">
+          </div>
+
+          <div class="project-body">
+            <p>
+              End-to-end analysis to identify pricing drivers and improve revenue by modeling fare patterns.
+            </p>
+            <p class="meta-line"><b>Tools:</b> Python (Colab), SQL, Tableau</p>
+            <p class="meta-line"><b>Analysis:</b> EDA, Linear Regression</p>
+
+            <div class="proj-actions">
+              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 02 -->
+      <div class="project-block">
+        <div class="project-head">
+          <div class="num">02</div>
+          <div>
+            <p class="proj-title">IBM EMPLOYEE ATTRITION</p>
+            <p class="proj-sub">PREDICTION AND STRATEGY</p>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-media">
+            <img src="projects/ibm_1.jpg" alt="IBM project preview 1">
+            <img src="projects/ibm_2.jpg" alt="IBM project preview 2">
+          </div>
+
+          <div class="project-body">
+            <p>
+              Built a prediction approach and business recommendations to reduce employee attrition.
+            </p>
+            <p class="meta-line"><b>Tools:</b> Python (Colab), Tableau</p>
+            <p class="meta-line"><b>Analysis:</b> EDA, Logistic Regression</p>
+
+            <div class="proj-actions">
+              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 03 -->
+      <div class="project-block">
+        <div class="project-head">
+          <div class="num">03</div>
+          <div>
+            <p class="proj-title">FAST FOOD MARKETING CAMPAIGN</p>
+            <p class="proj-sub">A/B TESTING</p>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-media">
+            <img src="projects/ab_1.jpg" alt="A/B project preview 1">
+            <img src="projects/ab_2.jpg" alt="A/B project preview 2">
+          </div>
+
+          <div class="project-body">
+            <p>
+              Determined the most profitable campaign by applying statistical testing and post-hoc analysis.
+            </p>
+            <p class="meta-line"><b>Tools:</b> Excel / Google Sheets</p>
+            <p class="meta-line"><b>Analysis:</b> ANOVA, Post-hoc T-Test, A/B Testing</p>
+
+            <div class="proj-actions">
+              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Google Sheet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 04 -->
+      <div class="project-block">
+        <div class="project-head">
+          <div class="num">04</div>
+          <div>
+            <p class="proj-title">E-COMMERCE COHORT ANALYSIS</p>
+            <p class="proj-sub">AND RFM SEGMENTATION</p>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-media">
+            <img src="projects/rfm_1.jpg" alt="RFM project preview 1">
+            <img src="projects/rfm_2.jpg" alt="RFM project preview 2">
+          </div>
+
+          <div class="project-body">
+            <p>
+              Improved retention strategy by clustering customers using RFM and cohort analysis.
+            </p>
+            <p class="meta-line"><b>Tools:</b> BigQuery, Python, Google Sheets, Looker Studio</p>
+            <p class="meta-line"><b>Analysis:</b> RFM, Cohort, Segmentation</p>
+
+            <div class="proj-actions">
+              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Dashboard</a>
+              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-pill">Contact Info</div>
+
+      <div class="contact-cta">
+        <h3>Let’s <span class="gold">connect</span> and work together!</h3>
+
+        <div class="contact-row">
+          <a class="contact-chip" href="tel:+918106472898">📞 +91-8106472898</a>
+          <a class="contact-chip" href="mailto:tejadapa2309@gmail.com">✉️ tejadapa2309@gmail.com</a>
+          <a class="contact-chip" href="https://www.linkedin.com/in/saitejaadapa" target="_blank" rel="noopener">in LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© 2026 Sai Teja Adapa · Designed & built by me</div>
+      <div style="display:flex; gap:14px;">
+        <a href="#">Terms & Support</a>
+        <a href="#">Privacy Policy</a>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section  id="projects">
-    <h2>Notable Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <div class="project-content">
-          <h3>Uber Pricing Optimization</h3>
-          <p>Linear Regression, NYC Dataset</p>
-        </div>
-      </div>
-      <div class="project">
-        <div class="project-content">
-          <h3>IBM Employee Attrition</h3>
-          <p>Logistic Regression, Strategy</p>
-        </div>
-      </div>
-      <div class="project">
-        <div class="project-content">
-          <h3>Fast Food A/B Testing</h3>
-          <p>Statistical Testing & Analysis</p>
-        </div>
-      </div>
-    </div>
-<section id="contact" class="section contact">
-  <h2>Contact</h2>
-  <p>Email: tejadapa2309@gmail.com</p>
-  <p>LinkedIn: www.linkedin.com/in/saitejaadapa</p>
-  <p>Contact number: +91-8106472898</p>  
-  </section>
-    
-  </section>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
 
-</main>
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
 
-<footer>
-  © 2026 Sai Teja Adapa · Designed & built by me
-</footer>
-
-<script>
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.navbar ul');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
-
-  
+    // close menu after clicking a link (mobile)
+    navLinks.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => navLinks.classList.remove("show"));
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
