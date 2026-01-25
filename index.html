@@ -6,842 +6,778 @@
   <title>Sai Teja Adapa | Data Analyst Portfolio</title>
   <meta name="description" content="Sai Teja Adapa - Data Analyst Portfolio" />
 
+  <!-- Canva-like font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg0:#050814;
-      --bg1:#070c1f;
-      --panel:#0a0f2a;
-      --panel2:#070b1b;
-      --line:rgba(255,255,255,.12);
-      --text:#e8ecff;
-      --muted:#aab2da;
-      --gold:#d4af37;
-      --cyan:#38bdf8;
-      --shadow: 0 18px 40px rgba(0,0,0,.45);
-      --radius:18px;
-      --radius2:999px;
+      --navy0:#03031a;
+      --navy1:#05052a;
+      --navy2:#07073a;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.78);
+      --muted2:rgba(255,255,255,.62);
+      --gold:#f6c000;         /* close to Canva yellow */
+      --gold2:#d7a700;
+      --line:rgba(255,255,255,.18);
       --max:1100px;
+      --pill:999px;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1000px 600px at 15% 0%, rgba(56,189,248,.18), transparent 60%),
-        radial-gradient(900px 550px at 85% 15%, rgba(212,175,55,.14), transparent 55%),
-        radial-gradient(800px 520px at 50% 110%, rgba(56,189,248,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
+        radial-gradient(900px 600px at 50% 0%, rgba(0,0,0,.25), transparent 55%),
+        radial-gradient(1400px 900px at 50% 70%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, var(--navy2), var(--navy0));
       overflow-x:hidden;
     }
 
-    /* ===== Sticky Nav ===== */
+    /* ===== NAV (top right links like his) ===== */
     .nav{
       position:fixed;
       top:0; left:0; right:0;
       z-index:999;
-      background:rgba(5,8,20,.78);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 18px;
+      padding:18px 26px;
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color:var(--text);
-      font-weight:800;
-      letter-spacing:.3px;
-    }
-    .brand-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(212,175,55,.35);
-      color:var(--gold);
-      font-size:.78rem;
-      font-weight:800;
-      text-transform:uppercase;
-    }
-
-    .hamburger{
-      display:none;
+      justify-content:flex-end;
+      gap:26px;
+      font-weight:700;
+      font-size:14px;
       background:transparent;
-      border:0;
-      color:var(--gold);
-      font-size:28px;
-      cursor:pointer;
-      padding:8px 10px;
-      border-radius:12px;
     }
-    .hamburger:hover{ background:rgba(255,255,255,.06); }
-
-    .nav-links{
-      display:flex;
-      list-style:none;
-      gap:22px;
-      margin:0; padding:0;
-      align-items:center;
-    }
-    .nav-links a{
-      color:rgba(232,236,255,.9);
+    .nav a{
+      color:#fff;
       text-decoration:none;
-      font-weight:650;
-      font-size:.95rem;
-      padding:10px 10px;
-      border-radius:12px;
-      transition: .2s ease;
+      opacity:.92;
     }
-    .nav-links a:hover{ color:var(--cyan); background:rgba(255,255,255,.06); }
-    .nav-cta{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
+    .nav a:hover{ color:var(--gold); }
 
-    /* ===== Layout ===== */
+    /* spacing under fixed nav */
+    .spacer{ height:68px; }
+
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:0 18px;
+      padding:0 22px;
     }
 
-    .spacer{ height:76px; } /* space under fixed nav */
-
-    /* ===== Pills / Buttons ===== */
+    /* ===== Pills like Canva ===== */
     .pill{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(212,175,55,.45);
-      color:var(--gold);
-      text-decoration:none;
-      font-weight:750;
-      font-size:.92rem;
-      background:rgba(212,175,55,.06);
-      transition:.2s ease;
-      white-space:nowrap;
+      border:3px solid var(--gold);
+      border-radius:var(--pill);
+      padding:8px 14px;
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      font-size:14px;
+      gap:8px;
+      width:fit-content;
     }
-    .pill:hover{ transform:translateY(-1px); background:rgba(56,189,248,.08); border-color:rgba(56,189,248,.45); color:var(--cyan); }
-    .pill.primary{
-      background:var(--gold);
-      color:#090b12;
-      border-color:transparent;
-    }
-    .pill.primary:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+    .pill .gold{ color:var(--gold); }
+    .pill .white{ color:#fff; opacity:.95; }
 
-    /* ===== Hero ===== */
+    /* ===== HERO ===== */
     .hero{
-      padding:34px 0 10px;
-      min-height: calc(100vh - 76px);
+      min-height: calc(100vh - 68px);
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap:28px;
+      gap:30px;
       align-items:center;
-    }
-    .hero-left{ display:flex; flex-direction:column; gap:14px; }
-    .hero-title{
-      margin:0;
-      font-size: clamp(2.2rem, 5vw, 3.7rem);
-      line-height:1.05;
-      letter-spacing:.4px;
-      font-weight:900;
-      text-transform:uppercase;
-    }
-    .hero-title .gold{ color:var(--gold); }
-    .hero-sub{
-      margin:0;
-      max-width:52ch;
-      color:var(--muted);
-      font-size:1.03rem;
-    }
-    .hero-mini{
-      display:inline-flex;
-      width:fit-content;
-      padding:6px 12px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(212,175,55,.38);
-      color:var(--gold);
-      font-weight:850;
-      font-size:.82rem;
-      letter-spacing:.9px;
-      text-transform:uppercase;
-      background:rgba(255,255,255,.03);
-    }
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:6px;
+      padding-top:10px;
+      padding-bottom:10px;
     }
 
-    .hero-right{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .avatar{
-      width:280px;
-      height:280px;
-      border-radius:50%;
-      object-fit:cover;
-      border:5px solid rgba(212,175,55,.9);
-      box-shadow: 0 0 0 10px rgba(212,175,55,.08), 0 25px 60px rgba(0,0,0,.55);
-      background:#0b0b0b;
-    }
-
-    /* ===== Section Headers ===== */
-    section{ padding:34px 0; }
-    .section-pill{
-      display:inline-flex;
-      align-items:center;
-      padding:6px 12px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(212,175,55,.42);
-      color:var(--gold);
-      font-weight:850;
-      font-size:.85rem;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      background:rgba(255,255,255,.03);
-      margin-bottom:14px;
-    }
-    h2{
-      margin:8px 0 18px;
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      letter-spacing:.4px;
-      color:var(--text);
-    }
-    .subtext{ color:var(--muted); margin:0; max-width:75ch; }
-
-    /* ===== Skills (4 columns like screenshot) ===== */
-    .skills-grid{
-      margin-top:18px;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      box-shadow: var(--shadow);
-    }
-    .skills-cols{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .skill-col{
-      padding:18px 18px 10px;
-      border-right:1px solid rgba(255,255,255,.10);
-      min-height:220px;
-    }
-    .skill-col:last-child{ border-right:0; }
-    .skill-head{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-    }
-    .icon{
-      width:34px; height:34px;
-      border-radius:12px;
-      display:grid; place-items:center;
-      background:rgba(212,175,55,.10);
-      border:1px solid rgba(212,175,55,.28);
-      color:var(--gold);
-      font-weight:900;
-    }
-    .skill-title{
-      font-weight:900;
-      color:var(--gold);
-      letter-spacing:.3px;
-    }
-    .skill-list{
-      margin:0; padding:0 0 10px 0;
-      list-style:none;
+    .hero-left{
       display:flex;
       flex-direction:column;
-      gap:10px;
-      color:rgba(232,236,255,.92);
-      font-weight:650;
-    }
-    .skill-list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .dot{
-      width:8px; height:8px;
-      border-radius:50%;
-      background:rgba(56,189,248,.9);
-      margin-top:7px;
-      flex:0 0 auto;
+      gap:18px;
     }
 
-    /* ===== Education & Experience ===== */
-    .two-cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-      margin-top:16px;
-    }
-    .box{
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      padding:18px;
-      background:rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-    }
-    .box h3{
-      margin:0 0 12px;
-      color:var(--gold);
-      letter-spacing:.3px;
-      text-transform:uppercase;
-      font-size:1.05rem;
-    }
-    .item{
-      padding:12px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .item:first-of-type{ border-top:0; padding-top:0; }
-    .item-title{
+    .title{
       margin:0;
       font-weight:900;
-      color:rgba(232,236,255,.95);
+      letter-spacing:2px;
+      line-height:.93;
+      text-transform:uppercase;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
     }
-    .item-meta{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:.95rem;
-    }
+    .title .mid{ color:var(--gold); }
 
-    /* ===== Projects blocks (01,02,03 style) ===== */
-    .project-block{
-      border-top:1px solid rgba(255,255,255,.10);
-      padding:28px 0;
+    .tagline{
+      margin:0;
+      font-size:18px;
+      font-weight:600;
+      color:rgba(255,255,255,.86);
+      line-height:1.5;
+      max-width:44ch;
     }
-    .project-head{
+    .tagline .hi{ color:var(--gold); font-weight:900; }
+
+    /* Avatar style = yellow circle + white ring */
+    .hero-right{
       display:flex;
-      align-items:flex-end;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:12px;
+      justify-content:center;
+      align-items:center;
     }
-    .num{
-      font-size:3.1rem;
-      font-weight:950;
-      color:rgba(232,236,255,.92);
-      line-height:1;
-    }
-    .proj-title{
-      margin:0;
-      font-size:1.35rem;
-      font-weight:950;
-      color:var(--gold);
-      letter-spacing:.4px;
-      text-transform:uppercase;
-    }
-    .proj-sub{
-      width:100%;
-      margin:0;
-      color:rgba(232,236,255,.78);
-      font-weight:750;
-      letter-spacing:.2px;
-      text-transform:uppercase;
-      font-size:.92rem;
-    }
-
-    .project-grid{
+    .avatarWrap{
+      width:360px;
+      height:360px;
+      border-radius:50%;
+      background:var(--gold);
+      border:10px solid #fff;      /* white ring */
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
-      align-items:start;
-    }
-    .project-media{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
+      place-items:end center;
       overflow:hidden;
-      background:rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      min-height:210px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 26px 60px rgba(0,0,0,.55);
     }
-    .project-media img{
+    .avatarWrap img{
       width:100%;
       height:100%;
+      object-fit:contain;
+      transform: translateY(18px);
+      background:transparent;
+    }
+
+    /* Down arrow button */
+    .down{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:#000;
+      display:grid;
+      place-items:center;
+      margin:18px auto 0;
+      border:2px solid rgba(255,255,255,.08);
+    }
+    .down::before{
+      content:"";
+      width:16px;
+      height:16px;
+      border-right:3px solid var(--gold);
+      border-bottom:3px solid var(--gold);
+      transform: rotate(45deg);
+      margin-top:-4px;
+    }
+
+    /* Section anchor safety (so headings not hidden by nav) */
+    section{ scroll-margin-top: 90px; }
+
+    /* ===== About ===== */
+    .aboutPad{
+      padding:40px 0 10px;
+      display:grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap:30px;
+      align-items:start;
+    }
+    .aboutLeft h2{
+      margin:0;
+      font-size:44px;
+      font-weight:500;
+      letter-spacing:.4px;
+      line-height:1.05;
+    }
+    .aboutLeft h2 span{
+      color:var(--gold);
+      font-weight:900;
+    }
+    .aboutRight{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+    .aboutRight b{
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    /* ===== Skills (4 cols with divider lines like his) ===== */
+    .skillsWrap{
+      padding:40px 0 30px;
+    }
+    .skillsGrid{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:0;
+    }
+    .skillCol{
+      padding:0 26px 10px 0;
+      border-right:1px solid var(--line);
+      min-height:320px;
+    }
+    .skillCol:last-child{ border-right:0; padding-right:0; }
+
+    .skillHead{
+      margin:0 0 18px;
+      font-size:26px;
+      font-weight:900;
+      line-height:1.12;
+      letter-spacing:.2px;
+    }
+    .skillHead .g{ color:var(--gold); }
+    .skillHead .w{ color:#fff; }
+
+    .skillRow{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin:18px 0;
+    }
+    .iconCircle{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:var(--gold);
+      display:grid;
+      place-items:center;
+      color:#000;
+      font-weight:900;
+      font-size:16px;
+    }
+    .skillText{
+      font-weight:700;
+      color:#fff;
+      font-size:14px;
+      opacity:.92;
+    }
+
+    .bullets{
+      margin:0;
+      padding-left:18px;
+      color:#fff;
+      font-weight:700;
+      opacity:.92;
+      line-height:1.6;
+      font-size:14px;
+    }
+    .bullets li{ margin:6px 0; }
+
+    /* ===== Projects (01/02/03/04 blocks like his) ===== */
+    .projectsWrap{
+      padding:30px 0 30px;
+    }
+    .projBlock{
+      padding:26px 0 34px;
+    }
+    .projHeader{
+      display:flex;
+      align-items:flex-end;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    .projNum{
+      font-size:76px;
+      font-weight:900;
+      line-height:1;
+      opacity:.95;
+    }
+    .projTitles{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .projTitle{
+      margin:0;
+      font-size:26px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+      color:var(--gold);
+    }
+    .projSub{
+      margin:0;
+      font-size:20px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+      color:var(--gold);
+    }
+
+    /* Image strip (two images side-by-side like his) */
+    .projMedia{
+      width:100%;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:0;
+      border-radius:10px;
+      overflow:hidden;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .projMedia img{
+      width:100%;
+      height:310px;
       object-fit:cover;
       display:block;
     }
-    .project-body{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      padding:16px;
-      background:rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
+
+    /* Description left + Buttons right */
+    .projBottom{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      margin-top:16px;
+      align-items:start;
     }
-    .project-body p{ margin:0 0 12px; color:var(--muted); }
-    .meta-line{
-      margin:10px 0 0;
-      color:rgba(232,236,255,.86);
-      font-weight:750;
-      font-size:.93rem;
+    .projDesc{
+      color:rgba(255,255,255,.86);
+      font-size:13px;
+      line-height:1.7;
+      font-weight:600;
     }
-    .meta-line b{ color:var(--gold); }
-    .proj-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .projDesc .hi{ color:var(--gold); font-weight:900; }
+    .projMeta{
       margin-top:12px;
+      font-size:13px;
+      font-weight:800;
+      color:#fff;
+    }
+    .projMeta b{ color:var(--gold); }
+    .projBtns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+      padding-top:6px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:var(--pill);
+      border:2px solid rgba(255,255,255,.75);
+      color:var(--gold);
+      font-weight:900;
+      font-size:12px;
+      text-decoration:none;
+      text-align:center;
+      min-width:120px;
+      background:rgba(0,0,0,.25);
+    }
+    .btn:hover{
+      border-color:var(--gold);
+      color:#fff;
+      background:rgba(246,192,0,.12);
     }
 
-    /* ===== Contact strip like screenshot ===== */
-    .contact-cta{
-      margin-top:18px;
-      padding:26px 18px;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      box-shadow: var(--shadow);
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
+    /* ===== Contact ===== */
+    .contactWrap{
+      padding:30px 0 10px;
       text-align:center;
     }
-    .contact-cta h3{
-      margin:0;
-      font-size:2.0rem;
-      font-weight:950;
+    .contactTitle{
+      margin:10px 0 18px;
+      font-size:34px;
+      font-weight:800;
       letter-spacing:.2px;
     }
-    .contact-cta h3 .gold{ color:var(--gold); }
-    .contact-row{
+    .contactTitle .g{ color:var(--gold); }
+    .contactLine{
       display:flex;
       justify-content:center;
       flex-wrap:wrap;
-      gap:14px;
-      color:rgba(232,236,255,.92);
+      gap:18px;
       font-weight:700;
+      color:rgba(255,255,255,.86);
+      font-size:14px;
     }
-    .contact-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:var(--radius2);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.18);
+    .contactLine a{
+      color:rgba(255,255,255,.86);
       text-decoration:none;
-      color:rgba(232,236,255,.92);
-      transition:.2s ease;
+      border-bottom:1px dashed rgba(255,255,255,.25);
+      padding-bottom:2px;
     }
-    .contact-chip:hover{ border-color:rgba(56,189,248,.45); color:var(--cyan); transform:translateY(-1px); }
+    .contactLine a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
 
-    /* ===== Footer ===== */
+    /* ===== Footer like his ===== */
     footer{
-      margin-top:46px;
-      padding:18px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:rgba(232,236,255,.65);
+      margin-top:30px;
+      padding:16px 0;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:rgba(255,255,255,.70);
+      font-weight:700;
+      font-size:12px;
     }
     .foot{
       max-width:var(--max);
       margin:0 auto;
+      padding:0 22px;
       display:flex;
       justify-content:space-between;
-      gap:12px;
+      gap:14px;
       flex-wrap:wrap;
-      padding:0 18px;
+      align-items:center;
     }
-    .foot a{ color:rgba(232,236,255,.70); text-decoration:none; }
-    .foot a:hover{ color:var(--cyan); }
+    .foot a{ color:rgba(255,255,255,.70); text-decoration:none; }
+    .foot a:hover{ color:var(--gold); }
 
-    /* ===== Mobile ===== */
+    /* ===== Responsive ===== */
     @media (max-width: 980px){
-      .hero{ grid-template-columns: 1fr; padding-top:20px; }
-      .hero-right{ order:-1; justify-content:flex-start; }
-      .avatar{ width:220px; height:220px; }
-      .project-grid{ grid-template-columns:1fr; }
-      .project-media{ grid-template-columns:1fr 1fr; }
-      .two-cols{ grid-template-columns:1fr; }
-      .skills-cols{ grid-template-columns:1fr 1fr; }
-      .skill-col:nth-child(2){ border-right:0; }
-      .skill-col:nth-child(3){ border-right:1px solid rgba(255,255,255,.10); border-top:1px solid rgba(255,255,255,.10); }
-      .skill-col:nth-child(4){ border-right:0; border-top:1px solid rgba(255,255,255,.10); }
+      .hero{ grid-template-columns: 1fr; }
+      .hero-right{ justify-content:flex-start; }
+      .avatarWrap{ width:280px; height:280px; }
+      .aboutPad{ grid-template-columns:1fr; }
+      .skillsGrid{ grid-template-columns:1fr 1fr; }
+      .skillCol:nth-child(2){ border-right:0; padding-right:0; }
+      .skillCol:nth-child(3){ border-right:1px solid var(--line); }
+      .projBottom{ grid-template-columns:1fr; }
+      .projBtns{ justify-content:flex-start; }
     }
     @media (max-width: 760px){
-      .hamburger{ display:block; }
-      .nav-links{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0; right:0;
-        background:rgba(5,8,20,.92);
-        border-bottom:1px solid rgba(255,255,255,.08);
-        padding:10px 10px 14px;
-        flex-direction:column;
-        gap:6px;
-      }
-      .nav-links.show{ display:flex; }
-      .nav-links a{ width:100%; }
-      .skills-cols{ grid-template-columns:1fr; }
-      .skill-col{ border-right:0; border-top:1px solid rgba(255,255,255,.10); }
-      .skill-col:first-child{ border-top:0; }
-      .project-media{ grid-template-columns:1fr; }
+      .nav{ justify-content:center; flex-wrap:wrap; gap:18px; }
+      .projMedia{ grid-template-columns:1fr; }
+      .projMedia img{ height:240px; }
+      .skillsGrid{ grid-template-columns:1fr; }
+      .skillCol{ border-right:0; padding-right:0; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:18px; }
+      .skillCol:last-child{ border-bottom:0; }
     }
-
-    /* Ensure anchors don't hide behind fixed nav */
-    section{ scroll-margin-top: 92px; }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
+  <!-- NAV (text links top-right like his) -->
   <div class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#home">
-        <span class="brand-badge">Data Analyst Portfolio</span>
-      </a>
-
-      <button class="hamburger" aria-label="Toggle menu" id="hamburger">&#9776;</button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#skills">Technical Skills</a></li>
-        <li><a href="#background">Education & Experience</a></li>
-        <li><a href="#projects">Notable Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a class="pill primary" href="#projects">Projects</a>
-      </div>
-    </div>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skill</a>
+    <a href="#background">Background</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 
   <div class="spacer"></div>
 
-  <main class="wrap">
+  <div class="wrap">
     <!-- HERO -->
     <section id="home" class="hero">
       <div class="hero-left">
-        <div class="hero-mini">DATA ANALYST PORTFOLIO</div>
+        <div class="pill">
+          <span class="gold">DATA ANALYST</span>
+          <span class="white">PORTFOLIO</span>
+        </div>
 
-        <h1 class="hero-title">
-          SAI TEJA <span class="gold">ADAPA</span>
+        <!-- match his 3-line look -->
+        <h1 class="title">
+          SAI TEJA<br>
+          <span class="mid">ADAPA</span><br>
         </h1>
 
-        <p class="hero-sub">
-          I analyze data to uncover insights, solve business problems, and support data-driven decision making.
+        <p class="tagline">
+          I analyze data to uncover <span class="hi">insights</span><br>
+          through <span class="hi">data</span>
         </p>
 
-        <div class="hero-actions">
-          <a class="pill primary" href="#projects">Projects</a>
-          <!-- Put your resume file in repo and change href to it -->
-          <a class="pill" href="SaiTejaAdapa_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-          <a class="pill" href="https://www.linkedin.com/in/saitejaadapa" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill" href="mailto:tejadapa2309@gmail.com">Email</a>
-        </div>
+        <div class="down" aria-hidden="true"></div>
       </div>
 
       <div class="hero-right">
-        <!-- Put your photo in repo as Profile.jpg (or change filename) -->
-        <img class="avatar" src="Profile.jpg" alt="Sai Teja Adapa" />
+        <!-- IMPORTANT: For closest replica, use a CUTOUT PNG with transparent background -->
+        <!-- Put your file as: Profile.png -->
+        <div class="avatarWrap">
+          <img src="Profile.png" alt="Sai Teja Adapa" />
+        </div>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
-      <div class="section-pill">About Me</div>
-      <h2>Hello, I’m <span style="color:var(--gold);">Sai Teja</span></h2>
-      <p class="subtext">
-        I’m a Data Analyst passionate about turning raw data into meaningful insights.
-        I work with SQL, Python, spreadsheets, and BI tools to analyze trends, build dashboards,
-        and communicate clear recommendations for business decisions.
-      </p>
-    </section>
+      <div class="pill" style="margin-bottom:22px;">
+        <span class="gold">About</span>
+        <span class="white">Me</span>
+      </div>
 
-    <!-- SKILLS (4 columns like screenshots) -->
-    <section id="skills">
-      <div class="section-pill">Technical Skills</div>
-      <h2>Tools I Use</h2>
+      <div class="aboutPad">
+        <div class="aboutLeft">
+          <h2>Hello,<br> I’m <span>Teja!</span></h2>
+        </div>
 
-      <div class="skills-grid">
-        <div class="skills-cols">
-          <div class="skill-col">
-            <div class="skill-head">
-              <div class="icon">⌘</div>
-              <div class="skill-title">Programming Languages</div>
-            </div>
-            <ul class="skill-list">
-              <li><span class="dot"></span> SQL</li>
-              <li><span class="dot"></span> Python</li>
-            </ul>
-          </div>
-
-          <div class="skill-col">
-            <div class="skill-head">
-              <div class="icon">▦</div>
-              <div class="skill-title">Data Analytic Tools</div>
-            </div>
-            <ul class="skill-list">
-              <li><span class="dot"></span> Microsoft Excel</li>
-              <li><span class="dot"></span> Google Sheets</li>
-              <li><span class="dot"></span> BigQuery</li>
-              <li><span class="dot"></span> VS Code</li>
-            </ul>
-          </div>
-
-          <div class="skill-col">
-            <div class="skill-head">
-              <div class="icon">◔</div>
-              <div class="skill-title">Data Visualization Tools</div>
-            </div>
-            <ul class="skill-list">
-              <li><span class="dot"></span> Tableau</li>
-              <li><span class="dot"></span> Looker Studio</li>
-            </ul>
-          </div>
-
-          <div class="skill-col">
-            <div class="skill-head">
-              <div class="icon">∑</div>
-              <div class="skill-title">Data Analytic Methods</div>
-            </div>
-            <ul class="skill-list">
-              <li><span class="dot"></span> EDA</li>
-              <li><span class="dot"></span> Regression</li>
-              <li><span class="dot"></span> A/B Testing</li>
-              <li><span class="dot"></span> ANOVA (Post-hoc T-Test)</li>
-              <li><span class="dot"></span> Cohort / Segmentation</li>
-            </ul>
-          </div>
+        <div class="aboutRight">
+          <b>Data Analyst</b> with strong interest in solving business problems using data.
+          Skilled in <b>SQL</b>, <b>Python</b>, <b>Google Sheets</b>, <b>Microsoft Excel</b>,
+          <b>Tableau</b>, and <b>Looker Studio</b> for end-to-end analysis and visualization.
+          Comfortable with data cleaning, exploratory analysis, dashboards, reporting,
+          and communicating actionable insights.
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION & EXPERIENCE -->
+    <!-- SKILLS -->
+    <section id="skills" class="skillsWrap">
+      <div class="pill">
+        <span class="gold">Technical</span>
+        <span class="white">Skills</span>
+      </div>
+
+      <div class="skillsGrid">
+        <!-- Column 1 -->
+        <div class="skillCol">
+          <div class="skillHead">
+            <span class="g">Programming</span><br><span class="w">Languages</span>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">SQL</div>
+            <div class="skillText">SQL</div>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">Py</div>
+            <div class="skillText">Python</div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="skillCol">
+          <div class="skillHead">
+            <span class="g">Data Analytic</span><br><span class="w">Tools</span>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">X</div>
+            <div class="skillText">Microsoft Excel</div>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">GS</div>
+            <div class="skillText">Google Sheet</div>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">BQ</div>
+            <div class="skillText">Google BigQuery</div>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">VS</div>
+            <div class="skillText">Visual Code Studio</div>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="skillCol">
+          <div class="skillHead">
+            <span class="g">Data Visualization</span><br><span class="w">Tools</span>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">Tb</div>
+            <div class="skillText">Tableau</div>
+          </div>
+
+          <div class="skillRow">
+            <div class="iconCircle">LS</div>
+            <div class="skillText">Looker Studio</div>
+          </div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="skillCol">
+          <div class="skillHead">
+            <span class="g">Data Analytic</span><br><span class="w">Methods</span>
+          </div>
+
+          <ul class="bullets">
+            <li>EDA</li>
+            <li>Segmentation / Clustering</li>
+            <li>Cohort</li>
+            <li>Linear Regression</li>
+            <li>Logistic Regression</li>
+            <li>Statistic</li>
+            <li>A/B Testing</li>
+            <li>ANOVA</li>
+            <li>(Post-Hoc) T-Test</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKGROUND -->
     <section id="background">
-      <div class="section-pill">Education & Experience Background</div>
-      <h2>Background</h2>
+      <div class="pill" style="margin-bottom:20px;">
+        <span class="gold">Education & Experience</span>
+        <span class="white">Background</span>
+      </div>
 
-      <div class="two-cols">
-        <div class="box">
-          <h3>Education</h3>
-
-          <div class="item">
-            <p class="item-title">Add your degree / course here</p>
-            <p class="item-meta">University / Platform · Year</p>
-          </div>
-
-          <div class="item">
-            <p class="item-title">Certifications (Optional)</p>
-            <p class="item-meta">Google Data Analytics / IBM / etc</p>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3>Experience</h3>
-
-          <div class="item">
-            <p class="item-title">Data Analyst (Add company)</p>
-            <p class="item-meta">Role details (1–2 lines) · Year</p>
-          </div>
-
-          <div class="item">
-            <p class="item-title">Projects / Internship (Optional)</p>
-            <p class="item-meta">Short impact statement · Year</p>
-          </div>
+      <!-- Keep this minimal like Canva section; edit as you want -->
+      <div class="aboutPad" style="padding-top:10px;">
+        <div class="aboutRight" style="grid-column:1 / -1;">
+          <b>Education:</b> Add your degree / college / year here.<br><br>
+          <b>Experience:</b> Add your role + company + years here. Keep to 2–4 bullet-like lines.
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (01/02/03/04 blocks like screenshots) -->
-    <section id="projects">
-      <div class="section-pill">Notable Projects</div>
-      <h2>Selected Work</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="projectsWrap">
+      <div class="pill" style="margin-bottom:18px;">
+        <span class="gold">Notable</span>
+        <span class="white">Projects</span>
+      </div>
 
-      <!-- Project 01 -->
-      <div class="project-block">
-        <div class="project-head">
-          <div class="num">01</div>
-          <div>
-            <p class="proj-title">UBER PRICING OPTIMIZATION</p>
-            <p class="proj-sub">IN NEW YORK CITY</p>
+      <!-- 01 -->
+      <div class="projBlock">
+        <div class="projHeader">
+          <div class="projNum">01</div>
+          <div class="projTitles">
+            <p class="projTitle">UBER PRICING OPTIMIZATION</p>
+            <p class="projSub">IN NEW YORK CITY</p>
           </div>
         </div>
 
-        <div class="project-grid">
-          <div class="project-media">
-            <!-- Put your images in repo and update names -->
-            <img src="projects/uber_1.jpg" alt="Uber project preview 1">
-            <img src="projects/uber_2.jpg" alt="Uber project preview 2">
+        <div class="projMedia">
+          <img src="projects/uber_1.jpg" alt="Uber project visual 1">
+          <img src="projects/uber_2.jpg" alt="Uber project visual 2">
+        </div>
+
+        <div class="projBottom">
+          <div>
+            <div class="projDesc">
+              An end-to-end analysis to <span class="hi">identify pricing drivers</span> and improve revenue by modeling fare patterns.
+            </div>
+            <div class="projMeta"><b>Tools:</b> Python (Colab), SQL, Tableau</div>
+            <div class="projMeta"><b>Analysis:</b> EDA, Linear Regression</div>
           </div>
 
-          <div class="project-body">
-            <p>
-              End-to-end analysis to identify pricing drivers and improve revenue by modeling fare patterns.
-            </p>
-            <p class="meta-line"><b>Tools:</b> Python (Colab), SQL, Tableau</p>
-            <p class="meta-line"><b>Analysis:</b> EDA, Linear Regression</p>
-
-            <div class="proj-actions">
-              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
-            </div>
+          <div class="projBtns">
+            <a class="btn" href="#" target="_blank" rel="noopener">Full Deck</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Python Code</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 02 -->
-      <div class="project-block">
-        <div class="project-head">
-          <div class="num">02</div>
-          <div>
-            <p class="proj-title">IBM EMPLOYEE ATTRITION</p>
-            <p class="proj-sub">PREDICTION AND STRATEGY</p>
+      <!-- 02 -->
+      <div class="projBlock">
+        <div class="projHeader">
+          <div class="projNum">02</div>
+          <div class="projTitles">
+            <p class="projTitle">IBM EMPLOYEE ATTRITION</p>
+            <p class="projSub">PREDICTION AND STRATEGY</p>
           </div>
         </div>
 
-        <div class="project-grid">
-          <div class="project-media">
-            <img src="projects/ibm_1.jpg" alt="IBM project preview 1">
-            <img src="projects/ibm_2.jpg" alt="IBM project preview 2">
+        <div class="projMedia">
+          <img src="projects/ibm_1.jpg" alt="IBM project visual 1">
+          <img src="projects/ibm_2.jpg" alt="IBM project visual 2">
+        </div>
+
+        <div class="projBottom">
+          <div>
+            <div class="projDesc">
+              Built a prediction approach and business recommendations to <span class="hi">reduce employee attrition</span>.
+            </div>
+            <div class="projMeta"><b>Tools:</b> Python (Colab), Tableau</div>
+            <div class="projMeta"><b>Analysis:</b> EDA, Logistic Regression</div>
           </div>
 
-          <div class="project-body">
-            <p>
-              Built a prediction approach and business recommendations to reduce employee attrition.
-            </p>
-            <p class="meta-line"><b>Tools:</b> Python (Colab), Tableau</p>
-            <p class="meta-line"><b>Analysis:</b> EDA, Logistic Regression</p>
-
-            <div class="proj-actions">
-              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
-            </div>
+          <div class="projBtns">
+            <a class="btn" href="#" target="_blank" rel="noopener">Full Deck</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Tableau Dashboard</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Python Code</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 03 -->
-      <div class="project-block">
-        <div class="project-head">
-          <div class="num">03</div>
-          <div>
-            <p class="proj-title">FAST FOOD MARKETING CAMPAIGN</p>
-            <p class="proj-sub">A/B TESTING</p>
+      <!-- 03 -->
+      <div class="projBlock">
+        <div class="projHeader">
+          <div class="projNum">03</div>
+          <div class="projTitles">
+            <p class="projTitle">FAST FOOD MARKETING CAMPAIGN</p>
+            <p class="projSub">A/B TESTING</p>
           </div>
         </div>
 
-        <div class="project-grid">
-          <div class="project-media">
-            <img src="projects/ab_1.jpg" alt="A/B project preview 1">
-            <img src="projects/ab_2.jpg" alt="A/B project preview 2">
+        <div class="projMedia">
+          <img src="projects/ab_1.jpg" alt="A/B project visual 1">
+          <img src="projects/ab_2.jpg" alt="A/B project visual 2">
+        </div>
+
+        <div class="projBottom">
+          <div>
+            <div class="projDesc">
+              Determined the <span class="hi">most profitable campaign</span> using statistical testing and post-hoc analysis.
+            </div>
+            <div class="projMeta"><b>Tools:</b> Google Sheet / Excel</div>
+            <div class="projMeta"><b>Analysis:</b> A/B Testing, ANOVA, Post Hoc T-test</div>
           </div>
 
-          <div class="project-body">
-            <p>
-              Determined the most profitable campaign by applying statistical testing and post-hoc analysis.
-            </p>
-            <p class="meta-line"><b>Tools:</b> Excel / Google Sheets</p>
-            <p class="meta-line"><b>Analysis:</b> ANOVA, Post-hoc T-Test, A/B Testing</p>
-
-            <div class="proj-actions">
-              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Google Sheet</a>
-            </div>
+          <div class="projBtns">
+            <a class="btn" href="#" target="_blank" rel="noopener">Full Deck</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Google Sheet</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 04 -->
-      <div class="project-block">
-        <div class="project-head">
-          <div class="num">04</div>
-          <div>
-            <p class="proj-title">E-COMMERCE COHORT ANALYSIS</p>
-            <p class="proj-sub">AND RFM SEGMENTATION</p>
+      <!-- 04 -->
+      <div class="projBlock">
+        <div class="projHeader">
+          <div class="projNum">04</div>
+          <div class="projTitles">
+            <p class="projTitle">E-COMMERCE COHORT ANALYSIS</p>
+            <p class="projSub">AND RFM SEGMENTATION</p>
           </div>
         </div>
 
-        <div class="project-grid">
-          <div class="project-media">
-            <img src="projects/rfm_1.jpg" alt="RFM project preview 1">
-            <img src="projects/rfm_2.jpg" alt="RFM project preview 2">
+        <div class="projMedia">
+          <img src="projects/rfm_1.jpg" alt="RFM project visual 1">
+          <img src="projects/rfm_2.jpg" alt="RFM project visual 2">
+        </div>
+
+        <div class="projBottom">
+          <div>
+            <div class="projDesc">
+              Improved retention strategy by <span class="hi">clustering customers</span> using RFM and cohort analysis.
+            </div>
+            <div class="projMeta"><b>Tools:</b> BigQuery, Python, Google Sheets, Looker Studio</div>
+            <div class="projMeta"><b>Analysis:</b> RFM Segmentation, Cohort Analysis</div>
           </div>
 
-          <div class="project-body">
-            <p>
-              Improved retention strategy by clustering customers using RFM and cohort analysis.
-            </p>
-            <p class="meta-line"><b>Tools:</b> BigQuery, Python, Google Sheets, Looker Studio</p>
-            <p class="meta-line"><b>Analysis:</b> RFM, Cohort, Segmentation</p>
-
-            <div class="proj-actions">
-              <a class="pill" href="#" target="_blank" rel="noopener">Full Deck</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Dashboard</a>
-              <a class="pill" href="#" target="_blank" rel="noopener">Python Code</a>
-            </div>
+          <div class="projBtns">
+            <a class="btn" href="#" target="_blank" rel="noopener">Full Deck</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Dashboard</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Python Code</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-pill">Contact Info</div>
+    <section id="contact" class="contactWrap">
+      <div class="pill" style="margin-bottom:18px;">
+        <span class="gold">Contact</span>
+        <span class="white">Info</span>
+      </div>
 
-      <div class="contact-cta">
-        <h3>Let’s <span class="gold">connect</span> and work together!</h3>
+      <div class="contactTitle">
+        Let’s <span class="g">connect</span> and<br> work together!
+      </div>
 
-        <div class="contact-row">
-          <a class="contact-chip" href="tel:+918106472898">📞 +91-8106472898</a>
-          <a class="contact-chip" href="mailto:tejadapa2309@gmail.com">✉️ tejadapa2309@gmail.com</a>
-          <a class="contact-chip" href="https://www.linkedin.com/in/saitejaadapa" target="_blank" rel="noopener">in LinkedIn</a>
-        </div>
+      <div class="contactLine">
+        <div>Phone (Whatsapp): <a href="tel:+918106472898">+91-8106472898</a></div>
+        <div>E-mail: <a href="mailto:tejadapa2309@gmail.com">tejadapa2309@gmail.com</a></div>
+        <div>LinkedIn: <a href="https://www.linkedin.com/in/saitejaadapa" target="_blank" rel="noopener">linkedin.com/in/saitejaadapa</a></div>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer>
     <div class="foot">
-      <div>© 2026 Sai Teja Adapa · Designed & built by me</div>
-      <div style="display:flex; gap:14px;">
-        <a href="#">Terms & Support</a>
-        <a href="#">Privacy Policy</a>
-      </div>
+      <div>Terms & Support</div>
+      <div>Privacy Policy</div>
+      <div>© 2026 Sai Teja Adapa</div>
     </div>
   </footer>
-
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
-
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // close menu after clicking a link (mobile)
-    navLinks.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => navLinks.classList.remove("show"));
-    });
-  </script>
 </body>
 </html>
