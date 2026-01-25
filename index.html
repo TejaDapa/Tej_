@@ -450,6 +450,74 @@
       .skillCol{ border-right:0; padding-right:0; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:18px; }
       .skillCol:last-child{ border-bottom:0; }
     }
+      margin:0;
+  font-family:"League Spartan", system-ui, sans-serif;
+  text-transform:uppercase;
+  line-height:.92;
+  letter-spacing:3px;
+
+  font-size: 78px;
+  font-weight: 500;          /* thinner like Canva */
+}
+.title .mid{
+  color: var(--gold);
+  font-weight: 900;          /* bold highlight word */
+}
+
+   
+
+    .tagline{
+      margin:0;
+      font-size:18px;
+      font-weight:600;
+      color:rgba(255,255,255,.86);
+      line-height:1.5;
+      max-width:44ch;
+    }
+...your last css rule...
+
+/* ===== Responsive layout for tablets & phones ===== */
+@media (max-width: 980px){
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: auto;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .hero-left{
+    padding-left: 0;
+  }
+
+  .hero-right{
+    justify-content: flex-start;
+  }
+
+  .avatarWrap{
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 520px){
+  .nav{
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px 14px;
+  }
+
+  .spacer{
+    height: 86px;
+  }
+
+  .avatarWrap{
+    width: 240px;
+    height: 240px;
+  }
+}
+  
   </style>
 </head>
 
@@ -789,6 +857,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
